@@ -1,11 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Number Patterns</title>
+    <script type="text/javascript">
+        //var num;
+        /* var no = prompt("Please provide a number for the no of rows to be print in a pattern...");
+        for (var m = 1; m <= no; m++) {
+            for (var n = 1; n <= m; n++) {
+                document.write("0" + n + " ");
+            }
+            document.write("<br />");
+        } */
+
+
+        class List {
+            constructor(data) {
+                this.head = {
+                    value: data,
+                    next: null,
+                };
+                this.tail = this.head;
+                this.size = 1
+            }
+            appendNode(nodeData) {
+                let newNode = {
+                    value: nodeData,
+                    next: null
+                };
+                this.tail.next = newNode
+                this.tail = newNode
+                this.size += 1
+            }
+
+            traversing() {
+                let counter = 0
+                let currentNode = this.head
+                while (counter < this.size) {
+                    console.log(currentNode)
+                    currentNode = currentNode.next;
+                    counter++
+                }
+            }
+
+            deleteNode(index) {
+                let counter = 1;
+                let lead = this.head;
+                if (index == 1) {
+                    this.head = this.head.next;
+                } else {
+                    while (counter < index - 1) {
+                        lead = lead.next
+                        counter++
+                    }
+                    let nextNode = lead.next.next
+                    lead.next = nextNode
+                }
+
+            }
+        }
+        let list = new List(100)
+        list.appendNode(200)
+        list.appendNode(300)
+        list.appendNode(400)
+        //list.traversing()
+        list.deleteNode(3)
+
+        console.log(list)
+    </script>
 </head>
-<body>
-    <h1>Index page</h1>
-</body>
+
+<body></body>
+
 </html>
